@@ -8,19 +8,17 @@
   <name>arquitetura-biblioteca</name>
   <description>Sistema para ilustrar desenvolvimento orientado por arquitetura</description>
   
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
   <dependencies>
 		<dependency>
-		    <groupId>br.com.caelum</groupId>
-		    <artifactId>vraptor</artifactId>
-		    <version>4.2.0-RC3</version>
+			<groupId>br.com.caelum</groupId>
+			<artifactId>vraptor</artifactId>
+			<version>4.1.4</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-
+	
 		<dependency>
 		    <groupId>org.jboss.weld.servlet</groupId>
 		    <artifactId>weld-servlet-core</artifactId>
@@ -31,6 +29,18 @@
 		    <groupId>org.jboss.weld</groupId>
 		    <artifactId>weld-core-impl</artifactId>
 		    <version>2.1.2.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>3.18.1-GA</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 		
 		<dependency>
@@ -51,17 +61,23 @@
 			<artifactId>hibernate-validator-cdi</artifactId>
 			<version>5.1.1.Final</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>1.0.0.Final</version>
-		</dependency>
 		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.0.Final</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.3</version>
+			<version>2.3.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.7.5</version> <!-- or the latest version avaiable -->
 		</dependency>
 
 		<dependency>
@@ -85,7 +101,24 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
+			<plugin>
+	          <groupId>org.apache.tomcat.maven</groupId>
+	          <artifactId>tomcat7-maven-plugin</artifactId>
+	          <version>2.2</version>
+	        </plugin>
+			<plugin>
+			  <groupId>org.eclipse.jetty</groupId>
+			  <artifactId>jetty-maven-plugin</artifactId>
+			  <version>9.0.5.v20130815</version>
+			</plugin>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.0.2.Final</version>
+				<configuration>
+					<filename>biblioteca.war</filename>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
