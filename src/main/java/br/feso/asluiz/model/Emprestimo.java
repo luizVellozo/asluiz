@@ -2,10 +2,13 @@ package br.feso.asluiz.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import br.feso.asluiz.converter.LocalDatePersistenceConverter;
 
 @Entity
 public class Emprestimo {
@@ -16,7 +19,8 @@ public class Emprestimo {
 	
 	@ManyToOne
 	private Livro livro;
-
+	
+	@Convert(converter = LocalDatePersistenceConverter.class)
 	private LocalDate dataDeEntrega;
 	
 	@ManyToOne
@@ -35,6 +39,10 @@ public class Emprestimo {
 	 */
 	@Deprecated
 	public Emprestimo() {}
+
+	public Integer getId() {
+		return id;
+	}
 
 	public void setDataDeEntrega(LocalDate dataDeEntrega) {
 		this.dataDeEntrega = dataDeEntrega;

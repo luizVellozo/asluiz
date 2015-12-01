@@ -5,7 +5,7 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 <form action="<c:url value='/usuario/cadastraFuncionario'/>" method="post">
 	<fieldset>
-		<legend>Novo Aluno</legend>
+		<legend>Novo Funcionário</legend>
 		<div class="form-group">
 			<label for="nome">Nome Completo:</label>
 			<div class="input-group">
