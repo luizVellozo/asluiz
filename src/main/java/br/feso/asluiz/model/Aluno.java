@@ -23,6 +23,18 @@ public class Aluno implements Usuario {
 	public Integer getId() {
 		return id;
 	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 
 	public Aluno(String nome, String matricula) {
 		this.nome = nome;

@@ -28,6 +28,14 @@ public class Editora {
 	public Integer getId() {
 		return id;
 	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Editora(String nome) {
 		this.nome = nome;

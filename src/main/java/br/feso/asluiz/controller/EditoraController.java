@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.feso.asluiz.dao.EditoraDao;
 import br.feso.asluiz.model.Editora;
@@ -34,6 +35,12 @@ public class EditoraController {
 	@Get
 	public List<Editora> lista() {
 		return editoraDao.getAll();
+	}
+	
+	@Post
+	public void cadastra(Editora editora) {
+		editoraDao.salva(editora);
+		result.redirectTo(this).lista();
 	}
 	
 }

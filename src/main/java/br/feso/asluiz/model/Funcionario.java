@@ -31,6 +31,10 @@ public class Funcionario implements Usuario {
 		this.cpf = cpf;
 		this.perfil = perfil;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
 	public Perfil getPerfil() {
 		return perfil;

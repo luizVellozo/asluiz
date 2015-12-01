@@ -3,28 +3,37 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
-<form>
+<form action="<c:url value='/usuario/cadastraFuncionario'/>" method="post">
 	<fieldset>
 		<legend>Novo Aluno</legend>
 		<div class="form-group">
 			<label for="nome">Nome Completo:</label>
 			<div class="input-group">
 				<span class="input-group-addon glyphicon glyphicon-user"></span> <input
-					type="text" class="form-control" id="nome" required />
+					type="text" class="form-control" id="nome" required name="funcionario.nome" />
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="matricula">Matrícula:</label>
+			<label for="cpf">CPF:</label>
 			<div class="input-group">
 				<span class="input-group-addon glyphicon glyphicon-tag"></span> <input
-					type="number" min="10000" max="99999" class="form-control"
-					id="matricula" required />
+					type="text" pattern="[0-9]{11}" class="form-control"
+					id="cpf" required name="funcionario.cpf" />
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="editora">Perfil:</label> <select class="form-control"
+				id="editora" name="funcionario.perfil">
+					<c:forEach var="perfil" items="${perfis}">
+						<option value="${perfil}">${perfil.label}</option>
+					</c:forEach>
+			</select>
+		</div>
+		
 	</fieldset>
 
 	<button type="submit" class="btn btn-primary btn-lg">
-		<span class="glyphicon glyphicon-thumbs-up"></span> Cadastrar Aluno
+		<span class="glyphicon glyphicon-thumbs-up"></span> Cadastrar Funcionário
 	</button>
 </form>
 

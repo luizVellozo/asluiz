@@ -31,6 +31,22 @@ public class Livro {
 		this.editora = editora;
 	}
 	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -4,14 +4,14 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<form>
+<form action="<c:url value='/editora/cadastra'/>" method="post">
 	<fieldset>
 		<legend>Nova Editora</legend>
 		<div class="form-group">
 			<label for="nome">Nome:</label>
 			<div class="input-group">
 				<span class="input-group-addon glyphicon glyphicon-book"></span> <input
-					type="text" class="form-control" id="nome" required />
+					type="text" class="form-control" id="nome" name="editora.nome" required />
 			</div>
 		</div>
 	</fieldset>

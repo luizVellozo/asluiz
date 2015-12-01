@@ -3,24 +3,32 @@ package br.feso.asluiz.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
 import br.feso.asluiz.model.Aluno;
+import br.feso.asluiz.model.Livro;
 
 public class AlunoDao {
-	
-private List<Aluno> alunos = new ArrayList<Aluno>();
-	
-	public AlunoDao() {
-		Aluno a = new Aluno("Luiz", "111526");
-		Aluno b = new Aluno("Mariana", "111526");
-		Aluno c = new Aluno("Fernando", "111236");
-		alunos.add(a);
-		alunos.add(b);
-		alunos.add(c);
-		
+
+	private EntityManager em;
+
+	@Deprecated
+	public AlunoDao() {}
+
+	@Inject
+	public AlunoDao(EntityManager em) {
+		this.em = em;
 	}
 
 	public List<Aluno> getAll() {
-		return alunos;
+		return em.createQuery("select a from Aluno a").getResultList();
+
 	}
 
+	public void salva(Aluno aluno) {
+		em.getTransaction().begin();
+		em.persist(aluno);
+		em.getTransaction().commit();
+	}
 }

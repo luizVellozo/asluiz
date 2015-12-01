@@ -1,28 +1,32 @@
 package br.feso.asluiz.dao;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
 import br.feso.asluiz.model.Editora;
 
 public class EditoraDao {
 	
-	private List<Editora> editoras = new ArrayList<Editora>();
+	private EntityManager em;
 	
-	public EditoraDao() {
-		Editora editoraA = new Editora("AAA");
-		Editora editoraB = new Editora("BBB");
-		Editora editoraC = new Editora("CCC");
-		editoras.add(editoraA);
-		editoras.add(editoraB);
-		editoras.add(editoraC);
+	@Deprecated
+	public EditoraDao() {}
+	
+	@Inject
+	public EditoraDao(EntityManager em) {
+		this.em = em;
 	}
 	
 	public List<Editora> getAll() {
-		return editoras;
+		return em.createQuery("select e from Editora e").getResultList();
+		
 	}
 	
 	public void salva(Editora editora) {
-		editoras.add(editora);
+		em.getTransaction().begin();
+		em.persist(editora);
+		em.getTransaction().commit();
 	}
 }

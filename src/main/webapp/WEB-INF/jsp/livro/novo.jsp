@@ -4,31 +4,32 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<form>
+<form action="<c:url value='/livro/cadastra'/>" method="post">
 	<fieldset>
 		<legend>Novo Livro</legend>
 		<div class="form-group">
 			<label for="titulo">Título:</label>
 			<div class="input-group">
 				<span class="input-group-addon glyphicon glyphicon-book"></span> <input
-					type="text" class="form-control" id="titulo" required />
+					type="text" class="form-control" id="titulo" required
+					name="livro.titulo" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="codigo">Código:</label>
 			<div class="input-group">
 				<span class="input-group-addon glyphicon glyphicon-tag"></span> <input
-					type="number" min="10000" max="99999" class="form-control"
-					id="codigo" required />
+					type="text" class="form-control" id="codigo" required
+					name="livro.codigo" />
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="editora">Editora:</label> <select
-				class="form-control" id="editora">
-				<option value="A">A</option>
-				<option value="B">B</option>
-				<option value="C">C</option>
+			<label for="editora">Editora:</label> <select class="form-control"
+				id="editora" name="livro.editora.id">
+				<c:forEach var="editora" items="${editoraList}">
+					<option value="${editora.id}">${editora.nome}</option>
+				</c:forEach>
 			</select>
 		</div>
 
