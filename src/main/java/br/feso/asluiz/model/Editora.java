@@ -24,6 +24,10 @@ public class Editora {
 	 */
 	@Deprecated
 	public Editora() {}
+	
+	public Integer getId() {
+		return id;
+	}
 
 	public Editora(String nome) {
 		this.nome = nome;

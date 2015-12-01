@@ -12,7 +12,7 @@ public class Livro {
 	@GeneratedValue
 	private Integer id;
 	
-	private String nome;
+	private String titulo;
 	private String codigo;
 	
 	@ManyToOne
@@ -26,13 +26,17 @@ public class Livro {
 	public Livro() {}
 
 	public Livro(String nome, String codigo, Editora editora) {
-		this.nome = nome;
+		this.titulo = nome;
 		this.codigo = codigo;
 		this.editora = editora;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
-	public String getNome() {
-		return nome;
+	public String getTitulo() {
+		return titulo;
 	}
 
 	public String getCodigo() {
