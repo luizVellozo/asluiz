@@ -20,6 +20,10 @@ public class Aluno implements Usuario {
 	@Deprecated
 	public Aluno() {}
 	
+	public Integer getId() {
+		return id;
+	}
+
 	public Aluno(String nome, String matricula) {
 		this.nome = nome;
 		this.matricula = matricula;

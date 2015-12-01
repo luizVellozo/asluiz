@@ -22,10 +22,10 @@
 		<nav class="navbar">
 			<ul class="nav nav-tabs nav-justified">
 				<li><a href="<c:url value='/' />">Home</a></li>
-				<li><a href="<c:url value='/livro/lista' />">Livros</a></li>
-				<li><a href="<c:url value='/editora/lista' />">Editora</a></li>
-				<li><a href="<c:url value='/emprestimo/lista' />">Empréstimo</a></li>
-				<li><a href="<c:url value='/usuario/lista' />">Usuários</a></li>
+				<li><a href="<c:url value='/livro/lista'/>">Livros</a></li>
+				<li><a href="<c:url value='/editora/lista'/>">Editora</a></li>
+				<li><a href="<c:url value='/emprestimo/lista'/>">Empréstimo</a></li>
+				<li><a href="<c:url value='/usuario/lista'/>">Usuários</a></li>
 			</ul>
 
 		</nav>
